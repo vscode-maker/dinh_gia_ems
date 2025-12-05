@@ -48,10 +48,12 @@
 ### 1.3. Tài sản khách hàng
 
 | Chỉ số | Giá trị |
-|--------|---------|
+|--------|---------||
 | **Tổng số khách hàng doanh nghiệp** | 500 khách hàng |
 | **Tỷ lệ khách quay lại** | 50% |
 | **Số tài khoản Google Workspace** | 18 accounts |
+| **Doanh thu License GWS/năm** | 300 triệu VND |
+| **Tồn kho License GWS** | 6/12 accounts (50%) |
 
 ### 1.4. Danh mục sản phẩm EMS Platform
 
@@ -128,39 +130,68 @@ Trong đó:
 
 | Hạng mục | Giá trị |
 |----------|---------|
-| Số lượng tài khoản | 18 accounts |
+| Số lượng tài khoản tổng | 18 accounts |
 | Giá trị mỗi account | 100 triệu VND |
 | **Tổng giá trị gốc** | **1.8 tỷ VND** |
+| **Đã bán license (đang cho thuê)** | 12 accounts |
+| **Tồn kho (chưa bán)** | 6 accounts |
+| **Doanh thu recurring/năm** | **300 triệu VND** |
 
-#### 3.1.2. Phương pháp định giá: Replacement Cost (Chi phí thay thế)
+#### 3.1.2. Phương pháp định giá: Kết hợp Replacement Cost + Recurring Revenue
 
+**Phương pháp 1: Chi phí thay thế (Replacement Cost)**
 ```
 Giá trị thay thế = Số lượng × Đơn giá thị trường
                  = 18 × 100 triệu
                  = 1.8 tỷ VND
 ```
 
-#### 3.1.3. Hệ số quy đổi vào Enterprise Value
+**Phương pháp 2: Recurring Revenue Multiple (QUAN TRỌNG)**
+```
+Doanh thu recurring = 300 triệu VND/năm
+Hệ số cho recurring revenue = 3 – 5× (ngành SaaS/License)
+
+Giá trị = 300 triệu × 4 = 1.2 tỷ VND
+Khoảng: 900 triệu – 1.5 tỷ VND
+```
+
+**Phương pháp 3: Giá trị tồn kho (Inventory Value)**
+```
+Tồn kho = 6 accounts × 100 triệu = 600 triệu VND
+Hệ số quy đổi (ready-to-sell): 80%
+Giá trị tồn kho = 600 × 80% = 480 triệu VND
+```
+
+#### 3.1.3. Tổng hợp giá trị Google Workspace
+
+| Thành phần | Giá trị | Ghi chú |
+|------------|---------|---------|
+| Recurring Revenue Value | 1.2 tỷ VND | 300tr × 4 multiple |
+| Inventory Value (6 accounts) | 480 triệu VND | Tồn kho sẵn sàng bán |
+| **TỔNG GIÁ TRỊ GWS** | **1.68 tỷ VND** | |
+
+#### 3.1.4. Hệ số quy đổi vào Enterprise Value
 
 | Yếu tố đánh giá | Mức độ | Ghi chú |
 |-----------------|--------|---------|
-| Đóng góp trực tiếp vào doanh thu | Trung bình | Là công cụ vận hành, không tạo doanh thu trực tiếp |
+| Đóng góp trực tiếp vào doanh thu | **CAO** | Tạo 300 triệu recurring/năm |
 | Mức độ thiết yếu | Cao | Cốt lõi cho hoạt động kinh doanh |
-| Khả năng chuyển nhượng | Trung bình | Có thể chuyển đổi với điều kiện |
+| Khả năng chuyển nhượng | Cao | License có thể chuyển nhượng |
+| Tính ổn định doanh thu | Rất cao | Recurring revenue ổn định |
 
-**Hệ số quy đổi hợp lý:** 40% – 60%
+**Hệ số quy đổi:** 100% (vì tạo doanh thu trực tiếp)
 
-#### 3.1.4. Kết quả định giá
+#### 3.1.5. Kết quả định giá
 
 ```
 ┌─────────────────────────────────────────────────┐
-│  GIÁ TRỊ TÀI SẢN HỮU HÌNH                       │
+│  GIÁ TRỊ TÀI SẢN HỮU HÌNH (CẬP NHẬT)            │
 ├─────────────────────────────────────────────────┤
-│  Giá trị gốc:        1,800,000,000 VND          │
-│  Hệ số quy đổi:      50%                        │
+│  Recurring Revenue (12 acc):  1,200,000,000 VND │
+│  Tồn kho (6 accounts):          480,000,000 VND │
 │  ─────────────────────────────────────────────  │
-│  GIÁ TRỊ QUY ĐỔI:    900,000,000 VND            │
-│                      (900 triệu VND)            │
+│  TỔNG GIÁ TRỊ GWS:           1,680,000,000 VND  │
+│                              (1.68 tỷ VND)      │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -691,10 +722,10 @@ Khoảng Bonus: 1 – 3 tỷ VND
 
 | STT | Phương pháp | Giá trị Min | Giá trị Max | Giá trị hợp lý | Trọng số |
 |-----|-------------|-------------|-------------|----------------|----------|
-| 1 | Tài sản hữu hình | 720 triệu | 1.08 tỷ | **900 triệu** | 4% |
-| 2 | Tài sản số | 350 triệu | 775 triệu | **550 triệu** | 4% |
+| 1 | Tài sản hữu hình (GWS Recurring) | 1.2 tỷ | 2 tỷ | **1.68 tỷ** | 6% |
+| 2 | Tài sản số | 350 triệu | 775 triệu | **550 triệu** | 3% |
 | 3 | Tài sản vô hình (bao gồm R&D) | 14.6 tỷ | 24.9 tỷ | **19.75 tỷ** | 30% |
-| 4 | Revenue Multiple | 7.2 tỷ | 12 tỷ | **9.6 tỷ** | 22% |
+| 4 | Revenue Multiple | 7.2 tỷ | 12 tỷ | **9.6 tỷ** | 21% |
 | 5 | Profit Multiple | 7.2 tỷ | 14.4 tỷ | **10.8 tỷ** | 28% |
 | 6 | Scalability Bonus | 1 tỷ | 3 tỷ | **1.53 tỷ** | 12% |
 
@@ -703,32 +734,32 @@ Khoảng Bonus: 1 – 3 tỷ VND
 #### Phương pháp 1: Tổng cộng đơn giản (Sum of Parts)
 
 ```
-Giá trị = Tài sản hữu hình + Tài sản số + Tài sản vô hình (incl. R&D) + Bonus
-        = 900 triệu + 550 triệu + 19.75 tỷ + 1.53 tỷ
-        = 22.73 tỷ VND
+Giá trị = Tài sản hữu hình (GWS) + Tài sản số + Tài sản vô hình (incl. R&D) + Bonus
+        = 1.68 tỷ + 550 triệu + 19.75 tỷ + 1.53 tỷ
+        = 23.51 tỷ VND
 ```
 
 #### Phương pháp 2: Bình quân gia quyền (Weighted Average)
 
 ```
 Giá trị = Σ (Giá trị × Trọng số)
-        = (900 × 4%) + (550 × 4%) + (19,750 × 30%) + 
-          (9,600 × 22%) + (10,800 × 28%) + (1,530 × 12%)
-        = 36 + 22 + 5,925 + 2,112 + 3,024 + 183.6
-        = 11,302.6 triệu VND
+        = (1,680 × 6%) + (550 × 3%) + (19,750 × 30%) + 
+          (9,600 × 21%) + (10,800 × 28%) + (1,530 × 12%)
+        = 100.8 + 16.5 + 5,925 + 2,016 + 3,024 + 183.6
+        = 11,265.9 triệu VND
         ≈ 11.3 tỷ VND
 ```
 
-#### Phương pháp 3: Trung bình Market-based + R&D Premium
+#### Phương pháp 3: Trung bình Market-based + R&D Premium + GWS Recurring
 
 ```
-Giá trị = (Revenue Multiple + Profit Multiple) / 2 + R&D Value + Bonus
-        = (9.6 + 10.8) / 2 + 7.5 + 1.53
-        = 10.2 + 7.5 + 1.53
-        = 19.23 tỷ VND
+Giá trị = (Revenue Multiple + Profit Multiple) / 2 + R&D Value + Bonus + GWS Recurring
+        = (9.6 + 10.8) / 2 + 7.5 + 1.53 + 1.2
+        = 10.2 + 7.5 + 1.53 + 1.2
+        = 20.43 tỷ VND
 ```
 
-### 9.3. Xác định khoảng giá trị (CẬP NHẬT)
+### 9.3. Xác định khoảng giá trị (CẬP NHẬT VỚI GWS RECURRING)
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -738,13 +769,14 @@ Giá trị = (Revenue Multiple + Profit Multiple) / 2 + R&D Value + Bonus
 │    THẤP              TRUNG BÌNH              CAO                │
 │     ▼                    ▼                    ▼                 │
 │  ┌───────┐          ┌──────────┐         ┌───────┐              │
-│  │ 12 tỷ │──────────│ 17-19 tỷ │─────────│ 23 tỷ │              │
+│  │ 13 tỷ │──────────│ 18-20 tỷ │─────────│ 24 tỷ │              │
 │  └───────┘          └──────────┘         └───────┘              │
 │                          ▲                                      │
 │                          │                                      │
 │                    GIÁ TRỊ ĐỀ XUẤT                              │
 │                                                                 │
 │   * Đã bao gồm giá trị R&D (Vibe Coding + Automation)           │
+│   * Đã bao gồm GWS Recurring Revenue (300 triệu/năm)            │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -755,23 +787,27 @@ Giá trị = (Revenue Multiple + Profit Multiple) / 2 + R&D Value + Bonus
 ╔═════════════════════════════════════════════════════════════════╗
 ║                                                                 ║
 ║           GIÁ TRỊ DOANH NGHIỆP CÔNG TY EMS                      ║
-║           (Bao gồm Vibe Coding & Automation R&D)                ║
+║     (Bao gồm Vibe Coding, Automation R&D & GWS Recurring)       ║
 ║                                                                 ║
 ╠═════════════════════════════════════════════════════════════════╣
 ║                                                                 ║
-║   Giá trị THẤP:           12,000,000,000 VND (12 tỷ)            ║
+║   Giá trị THẤP:           13,000,000,000 VND (13 tỷ)            ║
 ║                                                                 ║
-║   Giá trị HỢP LÝ:         18,000,000,000 VND (18 tỷ)            ║
+║   Giá trị HỢP LÝ:         19,000,000,000 VND (19 tỷ)            ║
 ║                                                                 ║
-║   Giá trị CAO:            23,000,000,000 VND (23 tỷ)            ║
+║   Giá trị CAO:            24,000,000,000 VND (24 tỷ)            ║
 ║                                                                 ║
 ╠═════════════════════════════════════════════════════════════════╣
 ║                                                                 ║
-║   💰 GIÁ TRỊ ĐỀ XUẤT:    17 - 19 TỶ VND                         ║
+║   💰 GIÁ TRỊ ĐỀ XUẤT:    18 - 20 TỶ VND                         ║
 ║                                                                 ║
 ║   📊 TĂNG THÊM TỪ R&D:   +6 - 8 TỶ VND                          ║
 ║      (Vibe Coding: 1.4 tỷ | Automation: 1.9 tỷ |                ║
 ║       EMS Platform: 4.2 tỷ)                                     ║
+║                                                                 ║
+║   🔄 GWS RECURRING:      +1.68 TỶ VND                           ║
+║      (12 acc đang bán license | 6 acc tồn kho)                  ║
+║      (Doanh thu ổn định: 300 triệu/năm)                         ║
 ║                                                                 ║
 ╚═════════════════════════════════════════════════════════════════╝
 ```
@@ -786,16 +822,19 @@ Dựa trên phân tích đa phương pháp, **Công ty Giải pháp số EMS** �
 
 | Mức | Giá trị | Ghi chú |
 |-----|---------|---------|
-| **Thấp** | 12 tỷ VND | Định giá bảo thủ |
-| **Trung bình** | 18 tỷ VND | Giá trị thị trường hợp lý (bao gồm R&D) |
-| **Cao** | 23 tỷ VND | Định giá lạc quan |
+| **Thấp** | 13 tỷ VND | Định giá bảo thủ |
+| **Trung bình** | 19 tỷ VND | Giá trị thị trường hợp lý (bao gồm R&D + GWS) |
+| **Cao** | 24 tỷ VND | Định giá lạc quan |
 
-### 10.2. Giá trị gia tăng từ R&D
+### 10.2. Giá trị gia tăng từ R&D & GWS Recurring
 
-| Hạng mục R&D | Giá trị | % đóng góp |
-|--------------|---------|------------|
-| **Vibe Coding Products** | 1.4 tỷ VND | 8% |
+| Hạng mục | Giá trị | % đóng góp |
+|----------|---------|------------|
+| **Vibe Coding Products** | 1.4 tỷ VND | 7% |
 | **Automation Products** | 1.9 tỷ VND | 10% |
+| **EMS Platform (6 Modules)** | 4.2 tỷ VND | 22% |
+| **GWS Recurring Revenue** | 1.68 tỷ VND | 9% |
+| **TỔNG GIÁ TRỊ GIA TĂNG** | **9.18 tỷ VND** | **48%** |
 | **EMS Platform (6 Modules)** | 4.2 tỷ VND | 23% |
 | **TỔNG GIÁ TRỊ R&D** | **7.5 tỷ VND** | **41%** |
 
