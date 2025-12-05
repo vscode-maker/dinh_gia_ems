@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Định Giá Doanh Nghiệp - EMS Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://gpems.net/_next/image?url=%2Flogo-ico.png&w=32&q=75" type="image/png">
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-dark: #0052CC;
+            --primary-light: #4D94FF;
+            --secondary: #00D4AA;
+            --accent: #00B8D9;
+            --dark: #0A1628;
+            --dark-light: #1A2A44;
+            --text: #E8F4FD;
+            --text-muted: #8BA3C7;
+            --gradient-1: linear-gradient(135deg, #0066FF 0%, #00D4AA 100%);
+            --gradient-2: linear-gradient(135deg, #1A2A44 0%, #0A1628 100%);
+            --gradient-3: linear-gradient(180deg, rgba(0,102,255,0.1) 0%, transparent 100%);
+            --shadow: 0 25px 50px -12px rgba(0, 102, 255, 0.25);
+            --glow: 0 0 40px rgba(0, 102, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--dark);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(0, 184, 217, 0.08) 0%, transparent 40%);
+            animation: bgMove 20s ease-in-out infinite;
+        }
+
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(1deg); }
+            66% { transform: translate(-20px, 20px) rotate(-1deg); }
+        }
+
+        /* Grid Lines */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 102, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 102, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 102, 255, 0.2);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 2rem 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1000px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(0, 102, 255, 0.1);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--primary-light);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge i {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s backwards;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Value Display */
+        .value-display {
+            background: var(--gradient-2);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            border-radius: 30px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.8s ease 0.3s backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-1);
+        }
+
+        .value-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .value-main {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-range {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .value-note {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 1rem;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .stat-item {
+            background: rgba(26, 42, 68, 0.5);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Value Breakdown Cards */
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .breakdown-card {
+            background: var(--gradient-2);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .breakdown-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .breakdown-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .breakdown-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-range {
+            font-size: 0.85rem;
+            color: var(--secondary);
+        }
+
+        .card-percentage {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(0, 212, 170, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Detailed Section */
+        .detail-section {
+            background: rgba(26, 42, 68, 0.3);
+            border-radius: 30px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(0, 102, 255, 0.1);
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .detail-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .detail-title i {
+            font-size: 2rem;
+            color: var(--primary-light);
+        }
+
+        .detail-title h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .detail-value-badge {
+            background: var(--gradient-1);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .detail-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .detail-table th,
+        .detail-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+        }
+
+        .detail-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .detail-table tr:hover td {
+            background: rgba(0, 102, 255, 0.05);
+        }
+
+        .detail-table .item-name {
+            font-weight: 500;
+        }
+
+        .detail-table .item-value {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Method Cards */
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .method-card {
+            background: rgba(26, 42, 68, 0.5);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .method-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .method-name {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .method-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .method-multiple {
+            font-size: 0.85rem;
+            color: var(--secondary);
+        }
+
+        /* Comparison Chart */
+        .comparison-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .chart-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .chart-label {
+            width: 150px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .chart-track {
+            flex: 1;
+            height: 40px;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .chart-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: width 1.5s ease;
+        }
+
+        /* Strengths */
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .strength-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(26, 42, 68, 0.5);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 102, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .strength-item:hover {
+            border-color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .strength-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 212, 170, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+
+        .strength-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .strength-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Final Summary */
+        .final-summary {
+            background: var(--gradient-2);
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            padding: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .final-summary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: var(--gradient-1);
+        }
+
+        .final-summary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(0, 102, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .summary-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .summary-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .summary-value {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-range {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .summary-breakdown {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 102, 255, 0.2);
+        }
+
+        .breakdown-item {
+            text-align: center;
+        }
+
+        .breakdown-item .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .breakdown-item .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
+            background: var(--gradient-1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 22, 40, 0.8);
+            border-top: 1px solid rgba(0, 102, 255, 0.2);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-date {
+            color: var(--primary-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .value-display {
+                padding: 2rem;
+            }
+
+            .detail-section {
+                padding: 1.5rem;
+            }
+
+            .detail-table th,
+            .detail-table td {
+                padding: 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .final-summary {
+                padding: 2rem;
+            }
+
+            .summary-breakdown {
+                gap: 1.5rem;
+            }
+
+            .chart-label {
+                width: 100px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="grid-overlay"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://gpems.net/_next/image?url=%2Flogo-ico.png&w=32&q=75" alt="EMS Logo">
+                <span class="logo-text">EMS Solutions</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#overview">Tổng quan</a>
+                <a href="#assets">Tài sản</a>
+                <a href="#rnd">R&D</a>
+                <a href="#methods">Phương pháp</a>
+                <a href="#summary">Kết luận</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="overview">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-chart-line"></i>
+                Báo cáo định giá doanh nghiệp
+            </div>
+            <h1>Công ty Giải pháp số <span>EMS</span></h1>
+            <p class="hero-subtitle">
+                Định giá toàn diện dựa trên đa phương pháp: Tài sản, Doanh thu, Lợi nhuận và Khả năng mở rộng
+            </p>
+
+            <!-- Main Value Display -->
+            <div class="value-display">
+                <div class="value-label">Giá trị doanh nghiệp đề xuất</div>
+                <div class="value-main">17 - 19 TỶ VND</div>
+                <div class="value-range">Khoảng giá trị: 12 tỷ → 23 tỷ VND</div>
+                <div class="value-note">
+                    <i class="fas fa-info-circle"></i>
+                    Bao gồm giá trị R&D từ Vibe Coding & Automation (+7.5 tỷ VND)
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-value">500+</div>
+                    <div class="stat-label">Khách hàng doanh nghiệp</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">50%</div>
+                    <div class="stat-label">Tỷ lệ khách quay lại</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">2.4 tỷ</div>
+                    <div class="stat-label">Doanh thu năm</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">6</div>
+                    <div class="stat-label">Module EMS Platform</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Breakdown Section -->
+    <section id="assets">
+        <div class="section-header">
+            <div class="section-tag">
+                <i class="fas fa-layer-group"></i>
+                Chi tiết định giá
+            </div>
+            <h2 class="section-title">Cấu trúc giá trị doanh nghiệp</h2>
+            <p class="section-subtitle">Phân tích chi tiết từng hạng mục tài sản và giá trị</p>
+        </div>
+
+        <div class="breakdown-grid">
+            <!-- Card 1: Tangible Assets -->
+            <div class="breakdown-card animate-on-scroll">
+                <span class="card-percentage">4%</span>
+                <div class="card-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3 class="card-title">Tài sản hữu hình</h3>
+                <p class="card-description">Google Workspace (18 accounts × 100 triệu) với hệ số quy đổi 50%</p>
+                <div class="card-value">900 triệu</div>
+                <div class="card-range">Khoảng: 720 triệu – 1.08 tỷ VND</div>
+            </div>
+
+            <!-- Card 2: Digital Assets -->
+            <div class="breakdown-card animate-on-scroll">
+                <span class="card-percentage">4%</span>
+                <div class="card-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 class="card-title">Tài sản số</h3>
+                <p class="card-description">Fanpage 50K members + 10 Group Zalo (15K thành viên hoạt động)</p>
+                <div class="card-value">550 triệu</div>
+                <div class="card-range">Khoảng: 350 – 775 triệu VND</div>
+            </div>
+
+            <!-- Card 3: Customer Value -->
+            <div class="breakdown-card animate-on-scroll">
+                <span class="card-percentage">30%</span>
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="card-title">Giá trị khách hàng (CLV)</h3>
+                <p class="card-description">500 KH doanh nghiệp × CLV 20 triệu/KH + Thương hiệu & Know-how</p>
+                <div class="card-value">12.25 tỷ</div>
+                <div class="card-range">Khoảng: 9 – 15.5 tỷ VND</div>
+            </div>
+
+            <!-- Card 4: R&D Value -->
+            <div class="breakdown-card animate-on-scroll">
+                <span class="card-percentage">41%</span>
+                <div class="card-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h3 class="card-title">Sản phẩm R&D</h3>
+                <p class="card-description">Vibe Coding + Automation + EMS Platform (6 modules)</p>
+                <div class="card-value">7.5 tỷ</div>
+                <div class="card-range">Khoảng: 5.6 – 9.4 tỷ VND</div>
+            </div>
+
+            <!-- Card 5: Revenue Multiple -->
+            <div class="breakdown-card animate-on-scroll">
+                <span class="card-percentage">22%</span>
+                <div class="card-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3 class="card-title">Định giá theo Doanh thu</h3>
+                <p class="card-description">Revenue Multiple 4× cho công ty No-code có recurring</p>
+                <div class="card-value">9.6 tỷ</div>
+                <div class="card-range">Khoảng: 7.2 – 12 tỷ VND</div>
+            </div>
+
+            <!-- Card 6: Scalability -->
+            <div class="breakdown-card animate-on-scroll">
+                <span class="card-percentage">12%</span>
+                <div class="card-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="card-title">Bonus Scalability</h3>
+                <p class="card-description">Scalability Score 74/100 - Khả năng mở rộng cao</p>
+                <div class="card-value">1.53 tỷ</div>
+                <div class="card-range">Khoảng: 1 – 3 tỷ VND</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- R&D Detail Section -->
+    <section id="rnd">
+        <div class="section-header">
+            <div class="section-tag">
+                <i class="fas fa-code"></i>
+                R&D Products
+            </div>
+            <h2 class="section-title">Chi tiết sản phẩm R&D</h2>
+            <p class="section-subtitle">Vibe Coding & Automation - Tài sản công nghệ có giá trị cao</p>
+        </div>
+
+        <!-- Vibe Coding -->
+        <div class="detail-section animate-on-scroll">
+            <div class="detail-header">
+                <div class="detail-title">
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                    <h3>Vibe Coding Products</h3>
+                </div>
+                <div class="detail-value-badge">1.4 tỷ VND</div>
+            </div>
+            <table class="detail-table">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Mô tả</th>
+                        <th>Giá trị</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="item-name">AI Prompt Library</td>
+                        <td>Bộ prompt tối ưu để sinh code AppSheet/AppsScript</td>
+                        <td class="item-value">200 – 400 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">Code Generator Templates</td>
+                        <td>Templates tự động tạo ứng dụng theo ngành</td>
+                        <td class="item-value">300 – 600 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">Component Library</td>
+                        <td>Thư viện UI/UX components tái sử dụng</td>
+                        <td class="item-value">150 – 300 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">Vibe Coding Workflow</td>
+                        <td>Quy trình dev kết hợp AI + No-code</td>
+                        <td class="item-value">200 – 400 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">Training Materials</td>
+                        <td>Tài liệu đào tạo Vibe Coding nội bộ</td>
+                        <td class="item-value">100 – 200 triệu</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Automation -->
+        <div class="detail-section animate-on-scroll">
+            <div class="detail-header">
+                <div class="detail-title">
+                    <i class="fas fa-gears"></i>
+                    <h3>Automation Products</h3>
+                </div>
+                <div class="detail-value-badge">1.9 tỷ VND</div>
+            </div>
+            <table class="detail-table">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Mô tả</th>
+                        <th>Giá trị</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="item-name">Workflow Engine</td>
+                        <td>Hệ thống xử lý workflow đa cấp</td>
+                        <td class="item-value">300 – 500 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">Zalo Integration</td>
+                        <td>Connector tích hợp Zalo OA/Zalo ZNS</td>
+                        <td class="item-value">200 – 400 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">Google Workspace Automation</td>
+                        <td>Scripts tự động cho Gmail, Drive, Calendar</td>
+                        <td class="item-value">250 – 450 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">Notification System</td>
+                        <td>Hệ thống thông báo đa kênh</td>
+                        <td class="item-value">150 – 300 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">Data Sync Engine</td>
+                        <td>Đồng bộ dữ liệu real-time giữa các hệ thống</td>
+                        <td class="item-value">200 – 400 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">Report Automation</td>
+                        <td>Tự động tạo báo cáo theo lịch</td>
+                        <td class="item-value">150 – 250 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">Approval Bot</td>
+                        <td>Bot tự động xử lý phê duyệt</td>
+                        <td class="item-value">100 – 200 triệu</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- EMS Platform -->
+        <div class="detail-section animate-on-scroll">
+            <div class="detail-header">
+                <div class="detail-title">
+                    <i class="fas fa-cubes"></i>
+                    <h3>EMS Platform (6 Modules)</h3>
+                </div>
+                <div class="detail-value-badge">4.2 tỷ VND</div>
+            </div>
+            <table class="detail-table">
+                <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Chức năng chính</th>
+                        <th>Giá trị thị trường</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="item-name">EMS HRM</td>
+                        <td>Quản lý nhân sự, chấm công, KPI, phân quyền</td>
+                        <td class="item-value">600 – 900 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">EMS Finance</td>
+                        <td>Quản lý thu chi, tài chính nội bộ, báo cáo</td>
+                        <td class="item-value">500 – 750 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">EMS Request</td>
+                        <td>Đề xuất & phê duyệt đa cấp, SLA</td>
+                        <td class="item-value">400 – 600 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">EMS Transport</td>
+                        <td>Vận tải & logistics, GPS, Container tracking</td>
+                        <td class="item-value">800 triệu – 1.2 tỷ</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">EMS Packaging</td>
+                        <td>Quản lý bao bì, vật tư, QR/Barcode</td>
+                        <td class="item-value">450 – 700 triệu</td>
+                    </tr>
+                    <tr>
+                        <td class="item-name">EMS Travel</td>
+                        <td>Quản lý du lịch, tour, booking</td>
+                        <td class="item-value">550 – 850 triệu</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Valuation Methods Section -->
+    <section id="methods">
+        <div class="section-header">
+            <div class="section-tag">
+                <i class="fas fa-calculator"></i>
+                Phương pháp
+            </div>
+            <h2 class="section-title">Đa phương pháp định giá</h2>
+            <p class="section-subtitle">Kết hợp nhiều phương pháp để đảm bảo tính khách quan</p>
+        </div>
+
+        <div class="method-grid animate-on-scroll">
+            <div class="method-card">
+                <div class="method-name">Revenue Multiple (4×)</div>
+                <div class="method-value">9.6 tỷ VND</div>
+                <div class="method-multiple">Doanh thu 2.4 tỷ × 4</div>
+            </div>
+            <div class="method-card">
+                <div class="method-name">Profit Multiple (15×)</div>
+                <div class="method-value">10.8 tỷ VND</div>
+                <div class="method-multiple">Lợi nhuận 720 triệu × 15</div>
+            </div>
+            <div class="method-card">
+                <div class="method-name">Sum of Parts</div>
+                <div class="method-value">22.73 tỷ VND</div>
+                <div class="method-multiple">Tổng cộng tất cả tài sản</div>
+            </div>
+            <div class="method-card">
+                <div class="method-name">Weighted Average</div>
+                <div class="method-value">11.3 tỷ VND</div>
+                <div class="method-multiple">Bình quân gia quyền</div>
+            </div>
+        </div>
+
+        <!-- Comparison Chart -->
+        <div class="detail-section animate-on-scroll" style="margin-top: 3rem;">
+            <h3 style="margin-bottom: 1.5rem; text-align: center;">So sánh các phương pháp định giá</h3>
+            <div class="comparison-chart">
+                <div class="chart-bar">
+                    <div class="chart-label">Giá trị thấp</div>
+                    <div class="chart-track">
+                        <div class="chart-fill" style="width: 52%;">12 tỷ</div>
+                    </div>
+                </div>
+                <div class="chart-bar">
+                    <div class="chart-label">Revenue Multiple</div>
+                    <div class="chart-track">
+                        <div class="chart-fill" style="width: 42%;">9.6 tỷ</div>
+                    </div>
+                </div>
+                <div class="chart-bar">
+                    <div class="chart-label">Profit Multiple</div>
+                    <div class="chart-track">
+                        <div class="chart-fill" style="width: 47%;">10.8 tỷ</div>
+                    </div>
+                </div>
+                <div class="chart-bar">
+                    <div class="chart-label">Giá trị đề xuất</div>
+                    <div class="chart-track">
+                        <div class="chart-fill" style="width: 78%; background: linear-gradient(135deg, #00D4AA 0%, #0066FF 100%);">18 tỷ</div>
+                    </div>
+                </div>
+                <div class="chart-bar">
+                    <div class="chart-label">Giá trị cao</div>
+                    <div class="chart-track">
+                        <div class="chart-fill" style="width: 100%;">23 tỷ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strengths Section -->
+    <section>
+        <div class="section-header">
+            <div class="section-tag">
+                <i class="fas fa-star"></i>
+                Điểm mạnh
+            </div>
+            <h2 class="section-title">Lợi thế cạnh tranh của EMS</h2>
+        </div>
+
+        <div class="strengths-grid animate-on-scroll">
+            <div class="strength-item">
+                <div class="strength-icon">
+                    <i class="fas fa-repeat"></i>
+                </div>
+                <div class="strength-text">
+                    <h4>50% khách quay lại</h4>
+                    <p>Tăng giá trị CLV và revenue multiple</p>
+                </div>
+            </div>
+            <div class="strength-item">
+                <div class="strength-icon">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="strength-text">
+                    <h4>Có sản phẩm riêng</h4>
+                    <p>EMS Platform với 6 module hoàn chỉnh</p>
+                </div>
+            </div>
+            <div class="strength-item">
+                <div class="strength-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="strength-text">
+                    <h4>500+ khách doanh nghiệp</h4>
+                    <p>Tài sản vô hình có giá trị lớn</p>
+                </div>
+            </div>
+            <div class="strength-item">
+                <div class="strength-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <div class="strength-text">
+                    <h4>Mô hình Hybrid</h4>
+                    <p>Cân bằng dự án và recurring revenue</p>
+                </div>
+            </div>
+            <div class="strength-item">
+                <div class="strength-icon">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="strength-text">
+                    <h4>Hệ sinh thái Google</h4>
+                    <p>Nền tảng ổn định và bảo mật cao</p>
+                </div>
+            </div>
+            <div class="strength-item">
+                <div class="strength-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="strength-text">
+                    <h4>Vibe Coding & Automation</h4>
+                    <p>IP công nghệ có giá trị cao</p>
+                </div>
+            </div>
+            <div class="strength-item">
+                <div class="strength-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="strength-text">
+                    <h4>Scalability Score 74/100</h4>
+                    <p>Khả năng mở rộng thuộc nhóm CAO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Summary -->
+    <section id="summary">
+        <div class="final-summary animate-on-scroll">
+            <div class="summary-icon">💰</div>
+            <div class="summary-title">GIÁ TRỊ DOANH NGHIỆP ĐỀ XUẤT</div>
+            <div class="summary-value">17 - 19 TỶ VND</div>
+            <div class="summary-range">
+                <i class="fas fa-arrow-down"></i> 12 tỷ (Thấp) 
+                &nbsp;—&nbsp; 
+                <i class="fas fa-arrow-up"></i> 23 tỷ (Cao)
+            </div>
+
+            <div class="summary-breakdown">
+                <div class="breakdown-item">
+                    <div class="value">900 triệu</div>
+                    <div class="label">Tài sản hữu hình</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="value">550 triệu</div>
+                    <div class="label">Tài sản số</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="value">12.25 tỷ</div>
+                    <div class="label">Tài sản vô hình</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="value">7.5 tỷ</div>
+                    <div class="label">Sản phẩm R&D</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="value">1.53 tỷ</div>
+                    <div class="label">Scalability Bonus</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <a href="https://gpems.net" class="cta-button" target="_blank">
+            <i class="fas fa-external-link-alt"></i>
+            Tìm hiểu thêm về EMS
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://gpems.net/_next/image?url=%2Flogo-ico.png&w=32&q=75" alt="EMS Logo">
+                <span class="logo-text">EMS Solutions</span>
+            </div>
+            <p class="footer-text">
+                Báo cáo định giá doanh nghiệp - Công ty Giải pháp số EMS
+            </p>
+            <p class="footer-date">
+                <i class="far fa-calendar-alt"></i> Ngày lập báo cáo: 05/12/2024
+            </p>
+            <p class="footer-text" style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">
+                * Báo cáo này chỉ mang tính chất tham khảo. Giá trị thực tế có thể thay đổi tùy thuộc vào kết quả thẩm định chi tiết.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter animation for stats
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Animate charts on scroll
+        const chartObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fills = entry.target.querySelectorAll('.chart-fill');
+                    fills.forEach(fill => {
+                        const width = fill.style.width;
+                        fill.style.width = '0%';
+                        setTimeout(() => {
+                            fill.style.width = width;
+                        }, 100);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.comparison-chart').forEach(chart => {
+            chartObserver.observe(chart);
+        });
+    </script>
+</body>
+</html>
